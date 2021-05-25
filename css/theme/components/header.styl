@@ -1,4 +1,18 @@
 .header
+    margin-bottom: 0 !important
+    padding: 10px 0
+
+    @media media-min-lg
+        padding: 30px 0
+        transition: all .2s ease-in-out
+
+        [data-scrolling=true] &
+            padding: 10px 0
+
     &-container
         position: sticky
         top: 0
+        box-shadow: none
+
+        [data-scrolling=true] &
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .1)

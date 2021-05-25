@@ -1,0 +1,53 @@
+.mycart
+    .header &
+        &__content
+            display: none !important
+
+        &__header
+            position: relative
+
+            a
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 52px
+                height: 52px
+
+                @media media-max-sm
+                    width: 48px
+                    height: 48px
+                    border-radius: var(--border-radius)
+                    background: var(--primary)
+                    color: var(--primary-contrast)
+
+            .text
+                display: none
+
+            .ico
+                width: 32px
+                height: 30px
+                fill: currentColor
+
+                @media media-max-lg
+                    width: 20px
+                    height: 20px
+
+            .qtd
+                position: absolute
+                top: 0
+                right: 0
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 24px
+                height: 24px
+                border: solid 3px var(--button-contrast)
+                border-radius: 50%
+                background: var(--button)
+                color: var(--button-contrast)
+                font-weight: bold
+                font-size: 14px
+
+                @media media-max-lg
+                    top: -5px
+                    right: -5px

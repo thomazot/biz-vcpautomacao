@@ -1,0 +1,107 @@
+.newsletter
+    padding: gap 0
+    background: var(--primary)
+    color: var(--primary-contrast)
+
+    container()
+    shadowBorder()
+
+    &__form
+        @media media-min-lg
+            flex-wrap: nowrap
+
+    &__text
+        display: flex
+        align-items: center
+        margin: 0
+        color: currentColor
+
+        @media media-max-lg
+            padding-bottom: (gap / 2)
+
+        strong
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 20px
+
+        span
+            display: block
+            font-weight: regular
+            font-size: 18px
+
+    &__icon
+        display: flex
+        flex: 0 0 80px
+        justify-content: center
+        align-items: center
+        margin-right: 15px
+        padding: 17px
+        width: 80px
+        height: 80px
+        border-radius: 50%
+        background: rgba(255, 255, 255, .3)
+
+        @media media-max-lg
+            display: none
+
+        .ico
+            width: 46px
+            height: 32px
+            fill: currentColor
+
+    &__name, &__email
+        input
+            height: 56px
+            border: 0
+            border-radius: var(--border-radius)
+            box-shadow: none
+            color: var(--color-text-gray)
+            font-weight: regular
+            font-size: 16px
+
+            &::placeholder
+                color: var(--color-text-gray)
+                font-size: 16px
+
+    &__submit
+        .btn
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 0 10px
+            height: 56px
+            border-radius: var(--border-radius)
+            background: linear-gradient(to bottom, var(--button), var(--button-hover))
+            transition: none
+
+            &:hover
+                @media media-min-lg
+                    background: var(--button-hover)
+
+    @media media-min-lg
+        &__name, &__email, &__submit
+            padding: 0
+            min-width: 0
+
+        &__text
+            flex: 0 1 500px
+            min-width: 0
+
+        &__name
+            flex: 0 1 220px
+
+            input
+                border-radius: var(--border-radius) 0 0 var(--border-radius)
+
+        &__email
+            flex: 0 1 320px
+
+            input
+                border-left: solid 1px var(--color-border)
+                border-radius: 0
+
+        &__submit
+            flex: 0 1 250px
+
+            .btn
+                border-radius: 0 var(--border-radius) var(--border-radius) 0

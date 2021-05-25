@@ -1,0 +1,32 @@
+.socials
+    &__svg
+        height: 20px
+
+    &__list
+        margin: 0
+
+    &__item
+        padding: 0
+
+        + .socials__item
+            margin-left: 16px !important
+
+    &__link
+        display: flex
+        justify-content: center
+        align-items: center
+
+    .facebook
+        .socials
+            &__link
+                display: flex
+                justify-content: center
+                align-items: flex-end
+                width: 20px
+                height: 20px
+                border-radius: 3px
+                background: var(--facebook)
+
+            &__svg
+                margin-right: -5px
+                height: 15px

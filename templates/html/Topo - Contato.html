@@ -2,16 +2,18 @@
     <div class="top-head__container">
         <div class="top-head__contacts">
             <h3 class="top-head__text">
-                <svg class="ico z-phone">
-                    <use xlink:href="#z-phone" />
-                </svg>
-                <span>Central de Atendimento</span>
-                <svg class="ico z-down">
-                    <use xlink:href="#z-down" />
-                </svg>
+                <span>
+                    <svg class="ico z-phone">
+                        <use xlink:href="#z-phone" />
+                    </svg>
+                    <span>Central de Atendimento</span>
+                    <svg class="ico z-down">
+                        <use xlink:href="#z-down" />
+                    </svg>
+                </span>
             </h3>
             <div class="top-head__content">
-                
+                {{block type="menubuilder/output" identifier="top-contacts"}}
             </div>
         </div>
         

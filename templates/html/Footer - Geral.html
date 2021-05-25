@@ -1,0 +1,48 @@
+
+<div class="footer__rows">
+    <div class="footer__box">
+        {{widget type="interface/widget_logo" template="interface/widgets/logo.phtml" identificador="logofooter" imagem="wysiwyg/logo/vcpautomacao.png" imagem_mobile="wysiwyg/logo/vcpautomacao.png" alt_imagem="VCP Automação Industrial" tag_html="h3" tag_html_home="h3"}}
+        <h3 class="footer__title">Redes Sociais</h3>
+        <div class="footer__content">
+            {{widget type="interface/widget_social" template="interface/widgets/social.phtml" identificador="socials" redes="all"}}
+        </div>
+    </div>
+
+    <div class="footer__box">
+        <h3 class="footer__title">Sobre</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-sobre"}}
+        </div>
+    </div>
+
+    <div class="footer__box">
+        <h3 class="footer__title">Marcas</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-marcas"}}
+        </div>
+    </div>
+
+    <div class="footer__box">
+        <h3 class="footer__title">Ajuda e Suporte</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-ajuda-e-suporte"}}
+        </div>
+    </div>
+
+    <div class="footer__box">
+        <h3 class="footer__title">Atendimento</h3>
+        <div class="footer__content">
+            {{block type="menubuilder/output" identifier="footer-atendimento"}}
+        </div>
+    </div>
+</div>
+<div class="footer__rows">
+    <div class="footer__box">
+        <h3 class="footer__title">Formas de Pagamento</h3>
+        <div class="footer__content">{{widget type="interface/widget_pagtos" template="interface/widgets/pagtos.phtml" identificador="payments" pagtos="all"}}</div>
+    </div>
+    <div class="footer__box">
+        <h3 class="footer__title">Segurança</h3>
+        <div class="footer__content">{{widget type="interface/widget_seals" template="interface/widgets/seals.phtml" identificador="security" seals="all"}}</div>
+    </div>
+</div>

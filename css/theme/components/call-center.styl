@@ -1,0 +1,91 @@
+.call-center
+    --color: #1D3262
+    --color-obs: #9CA5B9
+
+    &
+        padding-bottom: 60px
+        color: var(--color)
+
+    &__container
+        container()
+
+    &__title
+        padding: 16px 0 46px
+
+        a
+            display: flex
+            justify-content: center
+            align-items: center
+            color: currentColor
+            font-weight: 28px
+            font-size: 24px
+
+        .ico
+            margin-right: 12px
+            width: 45px
+            height: 45px
+            fill: var(--whatsapp)
+
+        .number
+            font-weight: regular
+            font-size: 24px
+
+            span
+                font-size: 16px
+
+    &__list
+        display: flex
+        margin: -10px
+
+    &__box
+        margin: 10px
+        padding: 20px
+        border: dashed 1px var(--color-border)
+        border-radius: var(--border-radius)
+
+        a:hover
+            @media media-min-lg
+                color: var(--primary)
+
+    &__name
+        padding-bottom: 20px
+        color: var(--primary)
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 20px
+
+    &__text
+        color: currentColor
+        font-weight: regular
+        font-size: 14px
+        line-height: 19px
+
+    &__contacts
+        display: flex
+        align-items: center
+        padding: 20px 0 6px
+        font-size: 14px
+
+        a
+            color: currentColor
+
+        small
+            font-size: 10px
+
+    &__icon
+        flex: 0 0 23px
+        margin-right: 10px
+        width: 23px
+        height: 26px
+
+    &__email
+        font-size: 14px
+
+        a
+            color: currentColor
+
+    &__obs
+        color: var(--color-obs)
+        text-align: center
+        font-weight: medium
+        font-size: 14px

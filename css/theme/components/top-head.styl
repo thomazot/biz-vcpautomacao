@@ -1,0 +1,91 @@
+.top-head
+    position: relative
+    z-index: 100
+    display: none
+    margin-bottom: 0 !important
+    background: linear-gradient(to right, var(--primary), var(--primary-hover))
+    color: var(--primary-contrast)
+
+    @media media-min-lg
+        display: block
+
+    a
+        color: currentColor
+
+    &__container
+        container()
+
+        display: flex
+        justify-content: space-between
+
+    &__contacts
+        .z-phone
+            margin-right: 5px
+            width: 16px
+            height: 18px
+
+        .z-down
+            margin-left: 5px
+            width: 10px
+            height: 18px
+
+        .top-head__content
+            position: absolute
+            visibility: hidden
+            padding: (gap / 2)
+            width: 225px
+            border-radius: var(--border-radius)
+            background: var(--primary-contrast)
+            box-shadow: 0 0 16px rgba(0, 0, 0, .1)
+            color: var(--color-text)
+            opacity: 0
+            transition: all .2s ease-in-out
+
+            a
+                font-weight: regular
+                font-size: 13px
+
+            &:before
+                position: absolute
+                top: -5px
+                right: 30px
+                width: 10px
+                height: 10px
+                background: var(--primary-contrast)
+                content: ''
+                transform: rotate(45deg)
+
+        &:hover .top-head__content
+            visibility: visible
+            opacity: 1
+
+    &__chat
+        margin-right: 40px
+        margin-left: auto
+        width: 170px
+
+        .z-chat
+            margin-right: 5px
+            width: 25px
+            height: 25px
+
+    &__whatsapp
+        width: 170px
+        background: var(--whatsapp)
+
+        .z-whatsapp
+            margin-right: 5px
+
+    &__text
+        display: flex
+        justify-content: center
+        align-items: stretch
+        height: 40px
+        font-size: 14px
+        font-weigth: bold
+
+        > a, > span
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 100%

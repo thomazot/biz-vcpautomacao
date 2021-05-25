@@ -1,5 +1,56 @@
-@media media-max-lg
-    .categories
+.categories
+    &__show
+        display: none
+
+    &__open
+        margin: auto 0 auto auto
+        width: 48px
+        height: 48px
+        background: none
+        box-shadow: none
+
+        @media media-min-lg
+            pointer-events: none
+
+        .ico
+            width: 20px
+            height: 20px
+
+        &:hover
+            background: none
+
+    .li--0
+        --color: #1A9CFC
+
+        &:nth-child(2n+1)
+            --color: #0C3067
+
+        &:nth-child(3n+1)
+            --color: #F2BF00
+
+        &:nth-child(4n+1)
+            --color: #5CB855
+
+        &:nth-child(5n+1)
+            --color: #002F87
+
+        &:nth-child(6n+1)
+            --color: #169390
+
+        &:nth-child(7n+1)
+            --color: #000
+
+        &:nth-child(8n+1)
+            --color: #EB353D
+
+        &:hover .a--0
+            background: none
+            color: var(--color)
+
+    .a--0
+        color: var(--color)
+
+    @media media-max-lg
         .parent
             position: relative
 
@@ -27,7 +78,8 @@
                 align-items: center
                 width: 48px
                 height: 48px
-                background: var(--primary-contrast)
+                background: none
+                color: var(--primary-contrast)
                 font-size: 20px
                 transition: all .2s ease
 
@@ -41,22 +93,87 @@
         .all-li--0
             padding-bottom: 0
 
-@media media-min-lg
-    .categories
+    @media media-min-lg
         flex: 1
         margin-bottom: 0 !important
         min-width: 0
         background: none
-
-        .a--0
-            color: var(--primary)
-            text-transform: uppercase
-            white-space: nowrap
-            font-weight: semibold
-            font-size: 14px
-
-        .li--0
-            order: 1
+        background: var(--primary-contrast)
 
         &__all
-            order: 2
+            display: none
+
+        .a--0
+            padding: 0
+            white-space: nowrap
+            font-weight: medium
+            font-size: 16px
+
+        .a--1
+            color: var(--color-link)
+            font-weight: medium
+            font-size: 12px
+
+            &:hover
+                box-shadow: none
+                color: var(--primary)
+
+        .li--0
+            flex: 0 0 auto
+            order: 1
+            gap: gap
+
+            &:hover .box--1
+                visibility: visible
+                opacity: 1
+                transition-delay: .1s
+                transform: translateY(0)
+
+            &:not(:hover) .box--1
+                pointer-events: none
+
+        .ul--0
+            container()
+
+            justify-content: space-between
+
+        .box--1
+            display: block
+            visibility: visible
+            padding: 25px
+            width: 280px
+            border-radius: var(--border-radius)
+            background: white
+            box-shadow: 0 0 20px rgba(0, 0, 0, .1)
+            text-indent: 0
+            opacity: 0
+            transition: all .2s ease-in-out
+            transition-delay: .3s
+            transform: translateY(-10px)
+
+            &:after
+                position: absolute
+                top: -6px
+                left: var(--center)
+                width: 12px
+                height: 12px
+                border-radius: 2px
+                background: white
+                content: ''
+                transform: rotate(45deg)
+
+            &:before
+                color: var(--color)
+                content: attr(data-title)
+                font-weight: medium
+                font-size: 16px
+
+        .drop--right
+            .box--1:after
+                right: var(--center)
+                left: auto
+
+        .ul--1
+            display: grid
+            padding: 22px
+            grid-template-columns: repeat(2, 1fr)

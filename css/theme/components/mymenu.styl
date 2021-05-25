@@ -1,0 +1,24 @@
+.mymenu
+    .footer &
+        --color: #888888
+
+        .a--0
+            color: var(--color)
+            font-weight: regular
+            font-size: 12px
+
+            &[href='#']
+                cursor: none
+                pointer-events: none
+
+            &:hover
+                &:not([href='#'])
+                    @media media-min-lg
+                        color: var(--primary)
+
+        .li--0
+            padding-bottom: 5px
+
+        &#footer-marcas
+            .ul--0
+                column-count: 2

@@ -1234,8 +1234,8 @@ $j.fn.neonTheme.custom = {
     m_categories: true, // ativa o responsivo do Menu de Categorias
     m_search: true, // ativa o responsivo da Busca
     m_filters: true, // ativa o responsivo dos Filtros do Catálogo
-    m_myaccount: true, // ativa o responsivo da Minha Conta
-    m_mycart: true, // ativa o responsivo do Meu Carrinho
+    m_myaccount: false, // ativa o responsivo da Minha Conta
+    m_mycart: false, // ativa o responsivo do Meu Carrinho
     m_parcelamento: true, // ativa o responsivo do parcelamento na página de produto
     m_frete: true, // ativa o responsivo do cálculo de frete na página do produto
     m_produto: true, // ativa o responsivo de cada bloco da página de produto
@@ -1327,18 +1327,18 @@ function scrollTop() {
         var scrollTop = $j(window).scrollTop()
         var heightHeader = $j('.header-container').outerHeight()
 
-        if (scrollTop > 0) body.addClass('scrolling')
-        else body.removeClass('scrolling')
+        if (scrollTop > 0) body.attr('data-scrolling', 'true')
+        else body.attr('data-scrolling', 'false')
 
         if (scrollTop > heightHeader) {
             if (scrollTop > currentScrolling) {
-                body.addClass('scrolling--down').removeClass('scrolling--up')
+                body.attr('data-scrolling-mode', 'down')
             } else {
-                body.addClass('scrolling--up').removeClass('scrolling--down')
+                body.attr('data-scrolling-mode', 'up')
             }
             currentScrolling = scrollTop
         } else {
-            body.removeClass('scrolling--up').removeClass('scrolling--down')
+            body.attr('data-scrolling-mode', 'false')
         }
     })
 }
@@ -1352,8 +1352,12 @@ function categoriesTitle() {
             item.querySelector('.a--0') &&
             item.querySelector('.a--0').textContent.trim()
         const child = item.querySelector('.box--1')
+        const center = Math.ceil(item.offsetWidth / 2)
 
-        child.setAttribute('data-title', title)
+        if (child) {
+            child.setAttribute('data-title', title)
+            if (center) child.style.setProperty('--center', center + 'px')
+        }
     })
 }
 
@@ -1374,10 +1378,8 @@ function getAllVariables() {
                                 rule.selectorText === ':root'
                                     ? [
                                           ...def,
-                                          ...Array.from(
-                                              rule.style
-                                          ).filter((name) =>
-                                              name.startsWith('--')
+                                          ...Array.from(rule.style).filter(
+                                              (name) => name.startsWith('--')
                                           ),
                                       ]
                                     : def),
@@ -1413,15 +1415,18 @@ function hexToRgb(h) {
 
 function createRootVariableRGB() {
     const variablesName = getAllVariables() || []
+    const ignore = ['--border-radius']
 
     variablesName.forEach((name) => {
-        const value = getComputedStyle(
-            document.documentElement
-        ).getPropertyValue(name)
-        document.documentElement.style.setProperty(
-            `${name}-rgb`,
-            hexToRgb(value)
-        )
+        if (!ignore.includes(name)) {
+            const value = getComputedStyle(
+                document.documentElement
+            ).getPropertyValue(name)
+            document.documentElement.style.setProperty(
+                `${name}-rgb`,
+                hexToRgb(value)
+            )
+        }
     })
 }
 
@@ -1441,6 +1446,17 @@ $j(document)
             if ($(event.target).hasClass('parent')) {
                 $(event.target).toggleClass('on')
             }
+        })
+
+        $('.categories__open').click(function () {
+            $('.categories__show').trigger('click')
+        })
+
+        $('.call-center__list').owlCarousel({
+            itemsScaleUp: true,
+            navigation: true,
+            navigationText: ['?', '?'],
+            pagination: true,
         })
     })
     .on('resizeStop', function (e) {

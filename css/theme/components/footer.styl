@@ -1,0 +1,47 @@
+.footer
+    position: static
+
+    @media media-max-lg
+        text-align: center
+
+        .flex--a-center
+            justify-content: center
+
+    .pays
+        &__svg
+            height: 20px
+
+    .certs
+        &__svg, &__img
+            height: 26px
+
+    &__title
+        padding-bottom: 16px
+        color: var(--primary)
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 14px
+
+        @media media-max-lg
+            padding-top: 16px
+
+    &__rows
+        padding: 10px 0
+
+        @media media-min-lg
+            display: flex
+            justify-content: space-between
+
+    .logo
+        padding-bottom: 32px
+
+        @media media-max-lg
+            padding-bottom: 0
+
+        img, svg
+            width: 221px
+            height: 78px
+            object-fit: contain
+
+            @media media-max-lg
+                margin: 0 auto

@@ -1,0 +1,39 @@
+.price-box
+    .old-price, .special-price, .regular-price, .minimal-price
+        .label
+            display: none
+
+    .old-price
+        .price
+            text-decoration: none
+
+            span
+                color: var(--color-price-old)
+                text-decoration: line-through
+                font-weight: medium
+                font-size: 12px
+
+    .special-price, .regular-price, .minimal-price
+        .price span
+            color: var(--color-price-special)
+            font-weight: bold
+            font-size: 16px
+
+    .products &
+        margin-bottom: 5px
+
+.preco-parcelado-sem-juros
+    + .preco-parcelado
+        display: none
+
+.price-box-parcelado
+    font-size: 12px
+
+    .upto, .s-juros, .c-juros
+        display: none
+
+    > div:before, .de
+        color: var(--color-price-old)
+
+    > div:before
+        content: 'ou em '

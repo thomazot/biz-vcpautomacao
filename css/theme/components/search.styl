@@ -1,0 +1,64 @@
+.search
+    .header &
+        --box-shadow: 0 0 0 3px #eaeff0, 0 0 0 8px #f7f9f9
+
+        &
+            margin: 0
+
+        &__input
+            &::placeholder
+                color: var(--color-text-gray)
+                font-weight: regular
+                font-size: 14px
+
+            &:focus::placeholder
+                color: transparent
+
+        &__text
+            display: none
+
+        @media media-max-sm
+            &__button
+                width: 48px
+                height: 48px
+                border-radius: var(--border-radius)
+
+        @media media-min-sm
+            flex: 0 1 605px
+            margin: 0 auto
+
+            &__input
+                box-sizing: content-box
+                height: 48px
+                border: 0
+                border-radius: var(--border-radius)
+                box-shadow: var(--box-shadow)
+
+            &__button
+                position: absolute
+                right: 0
+                background: none
+                box-shadow: none
+                color: var(--primary)
+                font-weight: bold
+                font-size: 14px
+
+                &:hover
+                    color: var(--primary-hover)
+
+            &__ico
+                display: none
+
+            &__text
+                display: block
+
+@media media-max-sm
+    .header
+        .search.on .search__input
+            height: 68px
+
+        .search__hide
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 60px
